@@ -1,0 +1,211 @@
+.aside {
+  position: relative;
+  padding: 2rem;
+  grid-area: b;
+  background-color: $dark-brown;
+  overflow: hidden;
+
+  &__level-info {
+    @include flex($justify: space-around);
+  }
+
+  &__title {
+    color: $title;
+    font-size: 3rem;
+
+    &_complete {
+      &::after {
+        color: $green;
+      }
+    }
+
+    &_incomplete {
+      &::after {
+        color: $unselected;
+      }
+    }
+
+    &_complete-with-hint {
+      &::after {
+        color: $yellow;
+      }
+    }
+
+    &::after {
+      content: '\2713';
+    }
+  }
+
+  &__btn {
+    background-color: transparent;
+    @extend %transition;
+    border: none;
+    font-size: 5rem;
+    color: $unselected;
+    cursor: pointer;
+
+    &:hover {
+      color: $selected;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &-ctn {
+      @include flex($justify: space-between);
+      column-gap: 1rem;
+    }
+  }
+
+  &__burger {
+    display: inline-block;
+    box-sizing: content-box;
+    position: relative;
+    background-color: $unselected;
+    width: 3.5rem;
+    height: 1px;
+    border-radius: 2px;
+    @extend %transition;
+
+    &-checkbox {
+      display: none;
+
+      &:checked + .aside__burger_wrapper {
+        transform: rotate(90deg);
+      }
+    }
+
+    &_wrapper {
+      @include flex();
+      @extend %transition;
+      height: 3.5rem;
+      width: 3.5rem;
+      cursor: pointer;
+      z-index: 20;
+
+      &:hover {
+        & .aside__burger,
+        & .aside__burger::before,
+        & .aside__burger::after {
+          background-color: $selected;
+        }
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      @extend %transition;
+      position: absolute;
+      border-radius: 2px;
+      background-color: $unselected;
+      width: 3.5rem;
+      height: 2px;
+    }
+
+    &::before {
+      bottom: 1rem;
+    }
+
+    &::after {
+      top: 1rem;
+    }
+  }
+
+  &__progress {
+    background-color: $unselected;
+    height: 1px;
+    width: 100%;
+
+    &-bar {
+      position: relative;
+      width: 10%;
+      height: 1px;
+      background-color: $selected;
+      @extend %transition;
+
+      &::after {
+        content: '';
+        position: absolute;
+        border: 1px solid #000;
+        right: 0;
+        top: -.5rem;
+        background-color: #fff;
+        height: 1rem;
+        width: 1rem;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &__list {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    bottom: 0;
+    background-color: $dark-brown;
+    width: 100%;
+    color: $title;
+    list-style-type: none;
+    @extend %transition;
+
+    &-title {
+      font-size: 3rem;
+      padding: 3rem 0;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    &_open {
+      left: 0;
+      z-index: 10;
+    }
+
+    &-item {
+      color: $unselected;
+      font-size: 2.5rem;
+      padding: .5rem;
+      cursor: pointer;
+      font-weight: normal;
+
+      &_complete {
+        &::after {
+          color: $green;
+        }
+      }
+  
+      &_incomplete {
+        &::after {
+          color: $unselected;
+        }
+      }
+  
+      &_complete-with-hint {
+        &::after {
+          color: $yellow;
+        }
+      }
+  
+      &::after {
+        content: '\2713';
+      }
+
+      &:hover {
+        color: $selected;
+        background-color: rgba($color: #fff, $alpha: .3);
+      }
+    }
+  }
+
+  &__heading {
+    font-size: 3.5rem;
+    color: $title;
+    font-weight: 300;
+  }
+
+  &__desc {
+    font-size: 2.5rem;
+    color: $unselected;
+  }
+}

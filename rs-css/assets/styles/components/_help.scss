@@ -1,0 +1,27 @@
+.help {
+  font-family: 'JetBrains Mono', Courier, monospace;
+  position: absolute;
+  top: 0;
+  right: .5rem;
+  line-height: 1.5;
+  font-size: 5rem;
+  font-weight: bold;
+  z-index: 50;
+  cursor: pointer;
+  width: 8rem;
+  height: 8rem;
+  border-radius: 2rem;
+  color: $selected;
+  background-color: $unselected;
+  border: .5rem solid $dark-brown;
+  transition: .1s ease-in-out;
+
+  &:hover {
+    color: #151515;
+    background-color: $selected;
+  }
+
+  &:active {
+    background-color: #fff;
+  }
+}

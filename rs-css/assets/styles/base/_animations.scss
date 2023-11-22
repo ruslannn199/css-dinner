@@ -1,0 +1,87 @@
+// Появление
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(.3);
+    transform-origin: center;
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Анимация правильного выбора
+@keyframes flyUp {
+  0% {
+    transform: translateY(0px) rotate3d(0,0,0,0deg);
+  }
+  100% {
+    transform: translateY(-600px) rotate3d(0,0,0,0deg);
+  }
+}
+
+// Анимация неправильного выбора
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  75% {
+    transform: translateX(5px);
+  }
+}
+
+// Нужный селектор
+@keyframes strobeStart {
+  0% {
+    transform: skew(0deg,0deg) scaleY(1);
+    animation-timing-function: ease-in;
+   }
+  40% {
+    transform: skew(0deg,0deg) scaleY(.9);
+    animation-timing-function: ease-out;
+  }
+  100% {
+    transform: skew(4deg,0deg) scaleX(1);
+  }
+}
+
+@keyframes strobe {
+  0% { transform: skew(4deg,0deg) scaleX(1);
+  }
+  10% {
+    transform: skew(1deg,0deg) scaleY(.9);
+  }
+  50% {
+    transform: skew(-4deg,0deg) scaleX(1);
+  }
+  60% {
+    transform: skew(-1deg,0deg) scaleY(.9);
+  }
+  100% {
+    transform: skew(4deg,0deg) scaleX(1);
+  }
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(-20px);
+    animation-timing-function: ease-out;
+  }
+  50% {
+    transform: translateY(2px) rotate(-4deg);
+    animation-timing-function: ease-in;
+  }
+  100% {
+    transform: translateY(0px) rotate(-4deg);
+  }
+}

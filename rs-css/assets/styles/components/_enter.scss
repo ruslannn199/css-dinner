@@ -1,0 +1,19 @@
+.enter {
+  position: absolute;
+  font-size: 1.5rem;
+  top: .7rem;
+  left: 53rem;
+  border-width: .1rem .1rem 1rem .1rem;
+  border-style: solid;
+  border-color: black gray gray black;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active,
+  &_active {
+    border-width: 1rem .1rem .1rem .1rem;
+    border-color: gray black black gray;
+  }
+}

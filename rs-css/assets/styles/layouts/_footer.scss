@@ -1,0 +1,72 @@
+.footer {
+  @include flex($flex-dir: column);
+  row-gap: 3rem;
+  user-select: none;
+  grid-area: c;
+  z-index: 100;
+
+  &-ctn {
+    @include flex();
+    column-gap: 20rem;
+
+    @include media-tablet {
+      flex-direction: column;
+      row-gap: 4rem;
+    }
+  }
+
+  &__img-link {
+    background: url(../images/rs_school_js.svg) no-repeat;
+    background-position: center cover;
+    display: block;
+    width: 10.4rem;
+    height: 3.8rem;
+
+    @include media-tablet {
+      width: 21rem;
+      height: 8rem;
+    }
+  }
+
+  &__link {
+    display: block;
+    position: relative;
+    font-family: 'JetBrains Mono', Courier, monospace;
+    font-size: 1.4rem;
+    padding: 2rem 0 2rem 3rem;
+    text-align: center;
+    color: $unselected;
+    transition: 0.1s;
+    text-decoration: none;
+
+    @include media-tablet {
+      font-size: 3.2rem;
+    }
+  
+    &:hover {
+      color: $selected;
+
+      &::before {
+        filter: none;
+      }
+    }
+  
+    &::before {
+      content: '';
+      transition: 0.1s;
+      position: absolute;
+      top: 0;
+      left: -60%;
+      bottom: 5%;
+      right: 40%;
+      display: inline-block;
+      filter: invert(30%) sepia(5%) saturate(455%) hue-rotate(2deg) brightness(92%) contrast(91%);
+      background: url(../images/github-mark.png) no-repeat center;
+      background-size: 13%;
+
+      @include media-tablet {
+        left: -80%;
+      }
+    }
+  }
+}

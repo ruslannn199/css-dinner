@@ -1,0 +1,46 @@
+.popup {
+  @include flex($justify: flex-start, $flex-dir: column);
+  position: fixed;
+  font-size: 3rem;
+  top: -100%;
+  left: 50%;
+  transition: .25s;
+  background-color: #AC741C;
+  user-select: none;
+  padding: 5rem;
+  border: 1.5rem ridge $dark-brown;
+  height: 25rem;
+  transition: .5s .5s;
+
+  @include media-tablet {
+    height: 50rem;
+  }
+
+  @include media-mobile {
+    height: 65rem;
+    font-size: 6rem;
+  }
+
+  &_active {
+    top: 40%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    transition-delay: 0;
+  }
+
+  &__img {
+    width: 18rem;
+    height: 18rem;
+    background-color: transparent;
+
+    @include media-tablet {
+      width: 30rem;
+      height: 30rem;
+    }
+
+    @include media-mobile {
+      width: 45rem;
+      height: 45rem;
+    }
+  }
+}

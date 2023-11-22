@@ -1,0 +1,91 @@
+.editor {
+  background-color: $dark-brown;
+  @include flex($justify: space-evenly);
+  margin: 5rem 5rem 0;
+  align-self: stretch;
+  font-size: 2rem;
+  line-height: 1.15;
+  font-family: 'JetBrains Mono', Courier, monospace;
+
+  @include media-tablet {
+    flex-direction: column;
+  }
+
+  &__css,
+  &__html {
+    @include flex();
+    height: 100%;
+  }
+  &__area {
+    position: relative;
+    border: 1px solid black;
+    background-color: #151515;
+    margin: 1rem 0 2rem;
+    align-self: stretch;
+
+    &-desc {
+      margin: 0;
+      font-size: 2rem;
+      font-family: inherit;
+    }
+  }
+
+  &__input {
+    border: none;
+    position: relative;
+    background-color: #151515;
+    caret-color: #d0d0d0;
+    color: #d0d0d0;
+    padding: 1rem 1rem 0;
+    text-overflow: clip;
+    width: 50rem;
+
+    &::placeholder {
+      user-select: none;
+    }
+
+    &::selection {
+      background-color: #d0d0d0;
+      color: #151515;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__markup {
+    @include flex($align: flex-start, $flex-dir: column);
+    background-color: #151515;
+    padding: 1rem;
+
+    &-line {
+      @include flex($justify: flex-start);
+    }
+
+    &-pre {
+      margin: 0;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 1.1em 0 1em;
+    line-height: 1.155;
+    color: #fff;
+
+    &_html {
+      color: #fff;
+    }
+
+    &-item {
+      .editor__list_html &::marker {
+        background-color: #151515;
+      }
+
+      .editor__list_css &::marker {
+        background-color: #fff;
+      }
+    }
+  }
+}

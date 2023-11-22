@@ -1,0 +1,377 @@
+.table {
+  transform-style: preserve-3d;
+  outline: solid .1rem transparent;
+  margin: 0 auto;
+  min-height: 14.2rem;
+  padding: 1.5rem 1.5rem 2.2rem;
+  z-index: 20;
+  position: relative;
+  white-space: nowrap;
+  @include flex();
+
+  &__wrapper {
+    margin-top: 1rem;
+    transform: rotateX(20deg);
+    min-height: 14.2rem;
+    transform-origin: bottom;
+    z-index: 30;
+    position: relative;
+    margin: 1rem auto 0;
+    width: 104.2rem;
+  }
+
+  &__surface {
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(#dd992d,#cd8c26);
+    box-shadow: 0 4rem 1rem rgba(0, 0, 0, .2);
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(4.2% 0%,95.8% 0%,99.5% 100%,0.55% 100%);
+  }
+
+  &__edge {
+    width: 25rem;
+    margin: 0 auto 1rem;
+    background: #ac741c;
+    height: 1.5rem;
+    transform: rotateX(-40deg);
+    transform-origin: top;
+    z-index: 2;
+    width: 103rem;
+    opacity: 1;
+  }
+
+  &__leg {
+    width: 2.4rem;
+    height: 1rem;
+    background: #84570f;
+    position: absolute;
+    top: 1.5rem;
+
+    &:first-child {
+      left: 2rem;
+    }
+
+    &:last-child {
+      right: 2rem;
+    }
+  }
+
+  & plate {
+    z-index: 40;
+  }
+}
+
+bento,
+plate {
+  display: inline-block;
+  box-shadow: 0 0.8rem 0 rgba(0,0,0,.1);
+  width: 10rem;
+  height: 10rem;
+  margin: 0 1rem;
+  position: relative;
+
+  & orange,
+  & apple {
+    left: calc(50% - 3.3rem);
+    margin: 0;
+    position: absolute;
+  }
+
+  & > orange,
+  & > apple {
+    &:last-child {
+      top: calc(50% - 5.5rem);
+    }
+  }
+
+  & .small {
+    left: calc(50% - 2.75rem);
+    margin-left: 0;
+    margin-right: 0;
+
+    &:only-child {
+      position: absolute;
+      top: calc(50% - 2.75rem);
+      left: calc(50% - 1.75rem);
+      margin: 0;
+    }
+  }
+
+  & > pickle {
+    &:only-child {
+      position: absolute;
+      top: calc(50% - 4rem);
+      left: calc(50% - 1.35rem);
+      z-index: 40;
+      margin: 0;
+    }
+
+    &.small:only-child {
+      top: calc(50% - 2.5rem);
+      left: calc(50% - 1.1rem);
+      z-index: 40;
+    }
+  }
+}
+
+plate {
+  border-bottom: solid .5rem #ddd;
+  background: #fff;
+  border-radius: 10rem;
+  width: 12.5rem;
+  height: 12.5rem;
+
+  & apple,
+  & orange {
+    position: absolute;
+
+    &:last-child {
+      z-index: 10;
+    }
+
+    &:nth-last-child(2) {
+      top: -3.5rem;
+      z-index: 11;
+    }
+
+    &:nth-last-child(3) {
+      top: -7.5rem;
+      z-index: 12;
+    }
+
+    &:nth-last-child(4) {
+      top: -11.5rem;
+      z-index: 13;
+    }
+
+    &:nth-last-child(5) {
+      top: -15.5rem;
+      z-index: 14;
+    }
+  }
+
+  & bento {
+    height: 7.4rem;
+    width: 7.4rem;
+    position: absolute;
+    top: -.8rem;
+    left: 4rem;
+
+    & apple,
+    & orange {
+      top: -3.6rem;
+    }
+  }
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: calc(50% - 3.2rem);
+    top: calc(50% - 3.2rem);
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 6rem;
+    border-top: solid .6rem #ccc;
+    opacity: .4;
+    background-color: #ddd;
+  }
+}
+
+bento {
+  height: 10rem;
+  background: #a52a2a;
+  position: relative;
+  border: solid .3rem #711c12;
+  border-width: 2rem .2rem;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border: solid 1rem rgba(0, 0, 0, .1);
+    border-width: 1rem 0 0;
+  }
+
+  & apple,
+  & orange {
+
+    &:last-child {
+      z-index: 10;
+    }
+
+    &:nth-last-child(2) {
+      top: -3.5rem;
+      z-index: 11;
+    }
+
+    &:nth-last-child(3) {
+      top: -7.5rem;
+      z-index: 12;
+    }
+
+    &:nth-last-child(4) {
+      top: -11.5rem;
+      z-index: 13;
+    }
+
+    &:nth-last-child(5) {
+      top: -15.5rem;
+      z-index: 14;
+    }
+  }
+}
+
+apple {
+  background: #e41919;
+  border-color: #ab1212;
+}
+
+orange {
+  background: #ffa500;
+  border-color: #bd6e07;
+  z-index: 21;
+}
+
+pickle {
+  background: #179837;
+  width: 2.5rem;
+  border-radius: 3rem;
+  display: inline-block;
+  position: relative;
+  border: solid .2rem #025a18;
+  border-width: .2rem .2rem .9rem .2rem;
+  margin: 2rem 1rem;
+
+  &.small {
+    height: 4rem;
+    width: 1.8rem;
+    border-width: .1rem .2rem .6rem .2rem;
+    margin: 3rem 1rem;
+  }
+}
+
+orange,
+apple {
+  position: relative;
+  border-radius: 10rem;
+  border-style: solid;
+  border-width: .2rem .4rem 1.5rem;
+  height: 6rem;
+  width: 6rem;
+  margin: 2rem 1rem;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    background: rgba(255, 255, 255, .3);
+    height: 30%;
+    width: 30%;
+    top: 0;
+    left: 35%;
+    border-radius: 10rem;
+  }
+
+  &.small {
+    height: 3rem;
+    width: 3rem;
+    border-width: .2rem .4rem .8rem;
+    margin: 3rem 1rem;
+  }
+}
+
+orange,
+apple,
+pickle {
+  box-shadow: 0 .5rem 0 rgba(0, 0, 0, .4);
+  display: inline-block;
+  margin: 0 1rem;
+  height: 6rem;
+}
+
+apple,
+orange,
+pickle,
+bento,
+plate {
+  transition: transform ease-out .2s;
+}
+
+#fancy::after {
+  content: '';
+  display: block;
+  position: absolute;
+  left: calc(50% - 5.5rem);
+  top: calc(50% - 5.5rem);
+  height: 9.25rem;
+  width: 9.25rem;
+  border-radius: 100%;
+  border: solid 1rem #009ff2;
+  opacity: .4;
+}
+
+.tag {
+  z-index: 1;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 27.2rem;
+
+  &__desc {
+    @include flex();
+    position: absolute;
+    bottom: -1.4rem;
+    font-family: 'Satisfy', 'Style Script', sans-serif;
+    font-size: 2.2rem;
+    padding: 3rem 0 .2rem;
+    width: 8rem;
+    color: #09699b;
+    box-shadow: -.3rem .4rem 0 rgba(0, 0, 0, .1);
+    background-image: url(../images/line.gif);
+    background-color: #c5d6dd;
+    z-index: 30;
+    transform: rotate(-4deg);
+    animation: slide .4s ease-out;
+  }
+}
+
+.hovered {
+  &__restaurant {
+    box-shadow: 0 0 0 .5rem rgba(255, 255, 255, .4);
+
+    plate &:last-child {
+      box-shadow: 0 0 0 .5rem rgba(0, 0, 0, .3);
+    }
+  }
+
+  &__code {
+    -webkit-text-stroke: rgba($color: #fff, $alpha: .3) .1rem;
+
+    & & {
+      -webkit-text-stroke: rgba($color: #fff, $alpha: .7) .1rem;
+    }
+  }
+}
+
+.description {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 35%;
+  padding: 1rem;
+  width: auto;
+  height: auto;
+  background-color: #fff;
+  color: $unselected;
+  border: .5rem solid $unselected;
+  border-radius: unset;
+  z-index: 50;
+  opacity: 1;
+  font-size: 2.5rem;
+}

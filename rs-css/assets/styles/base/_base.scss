@@ -1,0 +1,17 @@
+html {
+  font-size: 0.5vw;
+}
+
+.body {
+  background-color: $light-brown;
+  display: grid;
+  grid-template-columns: 75% 25%;
+  grid-template-rows: 90vh 10vh;
+  grid-template-areas: 'a b'
+                       'c b';
+  font-family: 'Roboto', 'Open Sans', sans-serif;
+
+  @include media-tablet {
+    grid-template-rows: 80vh 20vh;
+  }
+}
